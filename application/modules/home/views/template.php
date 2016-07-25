@@ -18,41 +18,21 @@
     
     </head>
 
-    <body class="nav-md footer_fixed">
+    <body class="nav-md">
     <div class="container body">
         <div class="main_container">
             <div class="col-md-3 left_col menu_fixed">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
                         <a class="site_title" href="<?php echo base_url() ?>">
-                            <i class="fa fa-child">
-                            </i>
-                            <span>
-                                KH
-                            </span>
+                            <i aria-hidden="true" class="glyphicon glyphicon-grain"></i>
+                            <span>Kantong Kehamilan</span>
                         </a>
                     </div>
-                    <div class="clearfix">
-                    </div>
-                    <!-- menu profile quick info -->
-                    <div class="profile">
-                        <div class="profile_pic">
-                            <img alt="..." class="img-circle profile_img" src="<?php echo base_url() ?>assets/img/img.jpg">
-                            </img>
-                        </div>
-                        <div class="profile_info">
-                            <span>Selamat Datang</span>
-                            <h2>User</h2>
-                        </div>
-                    </div>
-                    <!-- /menu profile quick info -->
-                    <br/>
+                    <div class="clearfix"></div>
                     <!-- sidebar menu -->
                     <div class="main_menu_side hidden-print main_menu" id="sidebar-menu">
                         <div class="menu_section">
-                            <h3>
-                                General
-                            </h3>
                             <ul class="nav side-menu">
                                 <li><a><i class="fa fa-home"></i>Home</a></li>
                                 <li>
@@ -64,27 +44,6 @@
                             </ul>
                         </div>
                     </div>
-                    <!-- /sidebar menu -->
-                    <!-- /menu footer buttons -->
-                    <div class="sidebar-footer hidden-small">
-                        <a data-placement="top" data-toggle="tooltip" title="Settings">
-                            <span aria-hidden="true" class="glyphicon glyphicon-cog">
-                            </span>
-                        </a>
-                        <a data-placement="top" data-toggle="tooltip" title="FullScreen">
-                            <span aria-hidden="true" class="glyphicon glyphicon-fullscreen">
-                            </span>
-                        </a>
-                        <a data-placement="top" data-toggle="tooltip" title="Lock">
-                            <span aria-hidden="true" class="glyphicon glyphicon-eye-close">
-                            </span>
-                        </a>
-                        <a data-placement="top" data-toggle="tooltip" title="Logout">
-                            <span aria-hidden="true" class="glyphicon glyphicon-off">
-                            </span>
-                        </a>
-                    </div>
-                    <!-- /menu footer buttons -->
                 </div>
             </div>
 
@@ -126,10 +85,7 @@
             <!-- footer content -->
             <footer>
                 <div class="pull-right">
-                    Kantong Kehamilan
-                    <a href="http://">
-                        By : Haris Sudrajat
-                    </a>
+                    Kantong Kehamilan - HLMC - Created By : <a href="http://">Haris Sudrajat</a>
                 </div>
                 <div class="clearfix">
                 </div>
@@ -145,5 +101,104 @@
     <script type="text/javascript" src="<?php echo base_url() ?>assets/plugins/nprogress/nprogress.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>assets/plugins/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>assets/js/custom.min.js"></script>
+    <!-- Datatables -->
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/plugins/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/plugins/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/plugins/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/plugins/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/plugins/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/plugins/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/plugins/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/plugins/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/plugins/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/plugins/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/plugins/datatables.net-scroller/js/datatables.scroller.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/plugins/jszip/dist/jszip.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/plugins/pdfmake/build/pdfmake.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/plugins/pdfmake/build/vfs_fonts.js"></script>
+
+
+    <!-- Datatables -->
+    <script>
+      $(document).ready(function() {
+        var handleDataTableButtons = function() {
+          if ($("#datatable-buttons").length) {
+            $("#datatable-buttons").DataTable({
+              dom: "Bfrtip",
+              buttons: [
+                {
+                  extend: "copy",
+                  className: "btn-sm"
+                },
+                {
+                  extend: "csv",
+                  className: "btn-sm"
+                },
+                {
+                  extend: "excel",
+                  className: "btn-sm"
+                },
+                {
+                  extend: "pdfHtml5",
+                  className: "btn-sm"
+                },
+                {
+                  extend: "print",
+                  className: "btn-sm"
+                },
+              ],
+              responsive: true
+            });
+          }
+        };
+
+        TableManageButtons = function() {
+          "use strict";
+          return {
+            init: function() {
+              handleDataTableButtons();
+            }
+          };
+        }();
+
+        $('#datatable').dataTable();
+
+        $('#datatable-keytable').DataTable({
+          keys: true
+        });
+
+        $('#datatable-responsive').DataTable();
+
+        $('#datatable-scroller').DataTable({
+          ajax: "js/datatables/json/scroller-demo.json",
+          deferRender: true,
+          scrollY: 380,
+          scrollCollapse: true,
+          scroller: true
+        });
+
+        $('#datatable-fixed-header').DataTable({
+          fixedHeader: true
+        });
+
+        var $datatable = $('#datatable-checkbox');
+
+        $datatable.dataTable({
+          'order': [[ 1, 'asc' ]],
+          'columnDefs': [
+            { orderable: false, targets: [0] }
+          ]
+        });
+        $datatable.on('draw.dt', function() {
+          $('input').iCheck({
+            checkboxClass: 'icheckbox_flat-green'
+          });
+        });
+
+        TableManageButtons.init();
+      });
+    </script>
+    <!-- /Datatables -->
   </body>
 </html>
